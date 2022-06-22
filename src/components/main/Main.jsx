@@ -16,6 +16,9 @@ const MainStyled = styled.main`
     gap: 25px;
     justify-content: center;
     min-height: 80vh;
+    @media(max-width: 650px){
+        min-height: 60vh;
+    }
 `
 
 export default function Main(){

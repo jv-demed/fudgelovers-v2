@@ -11,8 +11,10 @@ const WelcomeTextStyled = styled.div`
         font-size: 1.3rem;
     }
     @media(max-width: 650px){
+        margin-bottom: 10px;
         h2{
-            font-size: 2rem;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
         span{
             display: none;
