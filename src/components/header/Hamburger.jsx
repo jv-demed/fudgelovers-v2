@@ -12,7 +12,7 @@ const HamburgerStyled = styled.span`
             border: none;
             color: ${({ theme }) => theme.palette.basics.white};
             display: flex;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             outline: none;
         }
     }

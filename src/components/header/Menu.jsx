@@ -27,7 +27,7 @@ export default function Menu({ shoppingCart }){
     return(
         <MenuStyled>
             <ul>
-                <li>Inínio</li>
+                <li>Início</li>
                 <li>Produtos</li>
                 <li>Contato</li>
             </ul>

@@ -9,6 +9,9 @@ const theme = {
             light: '#d1144d',
             dark: '#450619'
         },
+        socialMedias: {
+            whatsapp: '#128c7e'
+        },
         gray: {
             i100: '#ddd'
         }

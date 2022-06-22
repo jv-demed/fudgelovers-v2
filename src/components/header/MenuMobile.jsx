@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ShoppingCart from './ShoppingCart';
 import { Popover } from '@headlessui/react';
-import { AiOutlineClose } from 'react-icons/ai';
+import { VscChromeClose } from 'react-icons/vsc';
 
 const MenuMobileStyled = styled.div`
     @keyframes slide{
@@ -33,14 +33,14 @@ const MenuMobileStyled = styled.div`
             background-color: rgba(0,0,0,0);
             border: none;
             color: ${({ theme }) => theme.palette.basics.white};
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
     }
     ul{
         margin-top: 20px;
         li{
             border-bottom: 1px solid white;
-            padding: 8px 0;
+            padding: 10px 0;
         }
     }
 `
@@ -50,12 +50,12 @@ export default function MenuMobile({ shoppingCart }){
         <MenuMobileStyled>
             <span>
                 <Popover.Button className='closeBtn'>
-                    <AiOutlineClose />
+                    <VscChromeClose />
                 </Popover.Button>
                 <ShoppingCart shoppingCart={shoppingCart} />
             </span>
             <ul>
-                <li>Inínio</li>
+                <li>Início</li>
                 <li>Produtos</li>
                 <li>Contato</li>
             </ul>

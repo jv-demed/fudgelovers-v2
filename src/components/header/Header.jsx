@@ -7,17 +7,20 @@ const HeaderStyled = styled.header`
     align-items: center;
     background-color: ${({ theme }) => theme.palette.primary.main};
     display: flex;
-    height: 80px;
     justify-content: space-between;
+    position: sticky;
+        top: 0;
+    width: 100%;
     img{
         cursor: pointer;
+        margin: 5px 0;
         width: 120px;
     }
 `
 
 export default function Header({ shoppingCart }){
     return(
-        <HeaderStyled className='container'>
+        <HeaderStyled className='header container'>
             <img src={logos.logo.img} alt={logos.logo.desc} />
             <Menu shoppingCart={shoppingCart} />
             <Hamburger shoppingCart={shoppingCart} />
