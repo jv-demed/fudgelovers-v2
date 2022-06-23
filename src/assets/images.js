@@ -21,5 +21,4 @@ const logos = {
     }
 }
 
-
-export { backgrounds, highlights, logos };
+export { backgrounds, highlights, logos};

@@ -11,6 +11,7 @@ const HeaderStyled = styled.header`
     position: sticky;
         top: 0;
     width: 100%;
+    z-index: 2;
     img{
         cursor: pointer;
         margin: 5px 0;
