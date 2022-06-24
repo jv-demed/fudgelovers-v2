@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import ProductBoxBtn from './ProductBoxBtn';
+import { FaRegEye } from 'react-icons/fa';
+import { FiShoppingCart } from 'react-icons/fi';
 
 const ProductBoxStyled = styled.div`
     background-color: ${({ theme }) => theme.palette.gray.i50};
@@ -15,6 +18,16 @@ const ProductBoxStyled = styled.div`
         font-family: 'Montserrat', sans-serif;
         padding: 5px 15px;
     }
+    .btnArea{
+        display: flex;
+        .btnL{
+            border-right: 1px solid ${({ theme }) => theme.palette.gray.i200};
+            border-radius: 0 0 0 4px;
+        }
+        .btnR{
+            border-radius: 0 0 4px 0;
+        }
+    }
 `
 
 export default function ProductBox({ product }){
@@ -24,6 +37,16 @@ export default function ProductBox({ product }){
             <div className='productInfo'>
                 <span>{product.nome}</span>
                 <span>R${product.valor}</span>
+            </div>
+            <div className='btnArea'>
+                <ProductBoxBtn className='btnL'>
+                    Detalhes
+                    <FaRegEye />
+                </ProductBoxBtn>
+                <ProductBoxBtn className='btnR'>
+                    Comprar
+                    <FiShoppingCart />
+                </ProductBoxBtn>
             </div>
         </ProductBoxStyled>
     )
