@@ -1,10 +1,12 @@
+import { useMedia } from 'use-media';
 import styled from 'styled-components';
+import Hamburger from './Hamburger';
 import ShoppingCart from './ShoppingCart';
 
 const MenuStyled = styled.nav`
     display: flex;
     gap: 20px;
-    ul{
+    .menuDesktop{
         align-items: center;
         color: ${({ theme }) => theme.palette.basics.white};
         display: flex;
@@ -18,20 +20,24 @@ const MenuStyled = styled.nav`
             color: ${({ theme }) => theme.palette.gray.i100};
         }
     }
-    @media(max-width: 650px){
-        display: none;
-    }
 `
 
 export default function Menu({ shoppingCart }){
+
+    const isMobile = useMedia({ maxWidth: 650 });
+
     return(
         <MenuStyled>
-            <ul>
-                <li>Início</li>
-                <li>Produtos</li>
-                <li>Contato</li>
-            </ul>
-            <ShoppingCart shoppingCart={shoppingCart} />
+            {isMobile ?
+                <Hamburger shoppingCart={shoppingCart} />
+                :
+                <ul className='menuDesktop'>
+                    <li>Início</li>
+                    <li>Produtos</li>
+                    <li>Contato</li>
+                    <ShoppingCart shoppingCart={shoppingCart} />
+                </ul>
+            }
         </MenuStyled>
     )
 }

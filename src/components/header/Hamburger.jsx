@@ -4,17 +4,13 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import MenuMobile from './MenuMobile';
 
 const HamburgerStyled = styled.span`
-    display: none;
-    @media(max-width: 650px){
+    .hamburgerButton{
+        background-color: rgba(0,0,0,0);
+        border: none;
+        color: ${({ theme }) => theme.palette.basics.white};
         display: flex;
-        .hamburger{
-            background-color: rgba(0,0,0,0);
-            border: none;
-            color: ${({ theme }) => theme.palette.basics.white};
-            display: flex;
-            font-size: 1.6rem;
-            outline: none;
-        }
+        font-size: 1.6rem;
+        outline: none;
     }
 `
 
@@ -22,12 +18,12 @@ export default function Hamburger({ shoppingCart }){
     return(
         <HamburgerStyled>
             <Popover>
+                <Popover.Button className='hamburgerButton'>
+                    <GiHamburgerMenu />
+                </Popover.Button>
                 <Popover.Panel>
                     <MenuMobile shoppingCart={shoppingCart} />
                 </Popover.Panel>
-                <Popover.Button className='hamburger'>
-                    <GiHamburgerMenu />
-                </Popover.Button>
             </Popover>
         </HamburgerStyled>
     )

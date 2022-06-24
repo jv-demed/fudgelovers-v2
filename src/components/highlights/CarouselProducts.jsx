@@ -1,18 +1,15 @@
-import styled from 'styled-components';
 import { useMedia } from 'use-media';
+import styled from 'styled-components';
+import TitleSection from '../globals/TitleSection';
 import Carousel from 'react-multi-carousel';
 import ProductBox from './ProductBox';
 import 'react-multi-carousel/lib/styles.css';
 
 const CarouselProductsStyled = styled.div`
-    border: 1px solid red;
     z-index: 1;
-    @media(max-width: 650px){
-        
-    }
 `
 
-export default function CarouselProducts({ productList }){
+export default function CarouselProducts({ name, productList }){
     
     const isMobile = useMedia({ maxWidth: 650 });
 
@@ -33,6 +30,7 @@ export default function CarouselProducts({ productList }){
 
     return(
         <CarouselProductsStyled>
+            <TitleSection title={name} />
             <Carousel 
                 centerMode={isMobile ? true : false}
                 infinite={true}

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const ProductBoxStyled = styled.div`
     background-color: ${({ theme }) => theme.palette.gray.i50};
     border-radius: 4px;
-    height: 300px;
     margin: 0 auto;
     width: 95%;
     img{
@@ -14,10 +13,7 @@ const ProductBoxStyled = styled.div`
         display: flex;
         flex-direction: column;
         font-family: 'Montserrat', sans-serif;
-        padding: 2px 15px;
-    }
-    @media(max-width: 650px){
-        width: 85%;
+        padding: 5px 15px;
     }
 `
 

@@ -17,30 +17,33 @@ const MenuMobileStyled = styled.div`
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
     height: 100vh;
     padding: 15px 10px;
     position: fixed;
-    right: 0;
-    text-align: center;
-    top: 0;
+        right: 0;
+        top: 0;
     width: 80%;
     span{
-        align-items: center;
         display: flex;
         justify-content: space-between;
         .closeBtn{
             background-color: rgba(0,0,0,0);
             border: none;
             color: ${({ theme }) => theme.palette.basics.white};
+            cursor: pointer;
             font-size: 1.8rem;
         }
     }
     ul{
+        display: flex;
+        flex-direction: column;
         margin-top: 20px;
+        text-align: center;
         li{
             border-bottom: 1px solid white;
+            cursor: pointer;
             padding: 10px 0;
+            width: 100%;
         }
     }
 `

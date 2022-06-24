@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { logos } from '../../assets/images';
 import Menu from './Menu';
-import Hamburger from './Hamburger';
 
 const HeaderStyled = styled.header`
     align-items: center;
@@ -24,7 +23,6 @@ export default function Header({ shoppingCart }){
         <HeaderStyled className='header container'>
             <img src={logos.logo.img} alt={logos.logo.desc} />
             <Menu shoppingCart={shoppingCart} />
-            <Hamburger shoppingCart={shoppingCart} />
         </HeaderStyled>
     )
 }
