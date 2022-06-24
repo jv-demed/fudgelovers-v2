@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import TitleSection from '../globals/TitleSection';
-import CarouselP from './Carousel';
+import CarouselProducts from './CarouselProducts';
 import { news } from '../../assets/products';
 
 const HighlightsStyled = styled.main`
@@ -13,9 +13,9 @@ export default function Highlights(){
     return(
         <HighlightsStyled className='container'>
             <TitleSection title='Novidades' />
-            <CarouselP productList={news} name='news' />
+            <CarouselProducts productList={news} name='news' />
             <TitleSection title='Destaques' />
-            <CarouselP productList={news} name='high' />
+            <CarouselProducts productList={news} name='high' />
         </HighlightsStyled>
     )
 }

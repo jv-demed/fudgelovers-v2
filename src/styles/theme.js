@@ -13,6 +13,7 @@ const theme = {
             whatsapp: '#128c7e'
         },
         gray: {
+            i50: '#e5e3e3',
             i100: '#ddd',
             i200: '#c5c5c5',
             i500: '#808080' //gray
