@@ -9,7 +9,7 @@ const CarouselStyled = styled.div`
         //border: 1px solid red;
         background-color: ${({ theme }) => theme.palette.gray.i100};
         height: 300px;
-        width: 250px;
+        width: 95%;
         img{
             width: 100%;
         }
@@ -20,22 +20,28 @@ const CarouselStyled = styled.div`
             padding: 2px 15px;
         }
     }
-    //@media(max-width: 650px){
-    //    flex-shrink: 250px;
-    //    flex-wrap: wrap;
-    //}
+    @media(max-width: 650px){
+        .productBox{
+            margin: 0 auto;
+            width: 250px;
+        }
+    }
 `
 
 export default function CarouselP({ productList }){
     
     const responsive = {
         desktop: {
-            breakpoint: { max: 3000, min: 651 },
+            breakpoint: { max: 3000, min: 850 },
             items: 4
         },
+        tablet: {
+            breakpoint: { max: 849, min: 650 },
+            items: 3
+        },
         mobile: {
-            breakpoint: { max: 650, min: 0 },
-            items: 2
+            breakpoint: { max: 649, min: 0 },
+            items: 1
         }
     };
 
@@ -49,8 +55,8 @@ export default function CarouselP({ productList }){
                     <div className='productBox' key={index}>
                         <img src={product.img} alt={product.desc} />
                         <div className='productInfo'>
-                            <span>{product.name}</span>
-                            <span>R${product.value}</span>
+                            <span>{product.nome}</span>
+                            <span>R${product.valor}</span>
                         </div>
                     </div>
                 )
