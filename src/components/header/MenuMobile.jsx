@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import ShoppingCart from './ShoppingCart';
 import { Popover } from '@headlessui/react';
@@ -13,7 +14,6 @@ const MenuMobileStyled = styled.div`
     }
     animation: slide 0.2s linear;
     background-color: ${({ theme }) => theme.palette.primary.dark};
-    color: ${({ theme }) => theme.palette.basics.white};
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
@@ -44,6 +44,12 @@ const MenuMobileStyled = styled.div`
             cursor: pointer;
             padding: 10px 0;
             width: 100%;
+            a{
+                color: ${({ theme }) => theme.palette.basics.white};
+            }
+            a:hover{
+                color: ${({ theme }) => theme.palette.gray.i100};
+            }
         }
     }
 `
@@ -58,9 +64,19 @@ export default function MenuMobile({ shoppingCart }){
                 <ShoppingCart shoppingCart={shoppingCart} />
             </span>
             <ul>
-                <li>Início</li>
-                <li>Produtos</li>
-                <li>Contato</li>
+                <li>
+                    <Link href='/'>
+                        <a>Início</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href='/produtos'>
+                        <a>Produtos</a>
+                    </Link>
+                </li>
+                <li>
+                    <a>Contato</a>
+                </li>
             </ul>
         </MenuMobileStyled>
     )

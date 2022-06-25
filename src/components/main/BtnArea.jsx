@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import Btn from '../globals/Btn';
 import { IoIosCube } from 'react-icons/io';
@@ -18,10 +19,12 @@ const BtnAreaStyled = styled.div`
 export default function BtnArea(){
     return(
         <BtnAreaStyled>
-            <Btn>
-                EXPLORAR
-                <IoIosCube />
-            </Btn>
+            <Link href='/produtos'>
+                <Btn>
+                    EXPLORAR
+                    <IoIosCube />
+                </Btn>
+            </Link>
             <Btn className='whatsapp'>
                 WHATSAPP
                 <BsWhatsapp />

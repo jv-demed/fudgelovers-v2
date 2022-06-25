@@ -3,13 +3,13 @@ import styled from 'styled-components';
 const TitleSectionStyled = styled.h3`
     border-bottom: 1px solid ${({ theme }) => theme.palette.gray.i200};
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
+    font-size: ${props => props.size+'rem'};
     margin: 20px 0;
 `
 
-export default function TitleSection({ title }){
+export default function TitleSection({ title, size }){
     return(
-        <TitleSectionStyled>
+        <TitleSectionStyled size={size}>
             {title}
         </TitleSectionStyled>
     )

@@ -4,7 +4,6 @@ const Btn = styled.button`
     align-items: center;
     background-color: rgba(0,0,0,0);
     border: 2px solid ${({ theme }) => theme.palette.basics.white};
-    border-radius: 4px;
     box-shadow: 0px 1px 1px gray;
     color: ${({ theme }) => theme.palette.basics.white};
     display: flex;

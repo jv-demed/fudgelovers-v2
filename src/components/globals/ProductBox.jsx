@@ -5,45 +5,45 @@ import { FiShoppingCart } from 'react-icons/fi';
 
 const ProductBoxStyled = styled.div`
     background-color: ${({ theme }) => theme.palette.gray.i50};
-    border-radius: 4px;
-    margin: 0 auto;
-    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: ${props => props.size+'%'};
     img{
-        border-radius: 4px 4px 0 0;
         width: 100%;
     }
-    .productInfo{
-        display: flex;
-        flex-direction: column;
+    .productInfo{        
         font-family: 'Montserrat', sans-serif;
-        padding: 5px 15px;
+        padding: 5px 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     .btnArea{
         display: flex;
-        .btnL{
+        .border{
             border-right: 1px solid ${({ theme }) => theme.palette.gray.i200};
-            border-radius: 0 0 0 4px;
-        }
-        .btnR{
-            border-radius: 0 0 4px 0;
         }
     }
 `
 
-export default function ProductBox({ product }){
+export default function ProductBox({ product, size}){
     return(
-        <ProductBoxStyled>
-            <img src={product.img} alt={product.desc} />
-            <div className='productInfo'>
-                <span>{product.nome}</span>
-                <span>R${product.valor}</span>
+        <ProductBoxStyled size={size}>
+            <div>
+                <img src={product.img} alt={product.name} />
+                <div className='productInfo'>
+                    <span>{product.name}</span><br />
+                    <span>R${product.value}</span>
+                </div>
             </div>
             <div className='btnArea'>
-                <ProductBoxBtn className='btnL'>
+                <ProductBoxBtn className='border'>
                     Detalhes
                     <FaRegEye />
                 </ProductBoxBtn>
-                <ProductBoxBtn className='btnR'>
+                <ProductBoxBtn>
                     Comprar
                     <FiShoppingCart />
                 </ProductBoxBtn>

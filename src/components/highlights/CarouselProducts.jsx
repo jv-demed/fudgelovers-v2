@@ -2,7 +2,7 @@ import { useMedia } from 'use-media';
 import styled from 'styled-components';
 import TitleSection from '../globals/TitleSection';
 import Carousel from 'react-multi-carousel';
-import ProductBox from './ProductBox';
+import ProductBox from '../globals/ProductBox';
 import 'react-multi-carousel/lib/styles.css';
 
 const CarouselProductsStyled = styled.div`
@@ -30,8 +30,8 @@ export default function CarouselProducts({ name, productList }){
 
     return(
         <CarouselProductsStyled>
-            <TitleSection title={name} />
-            <Carousel 
+            <TitleSection title={name} size={1.5} />
+            <Carousel
                 centerMode={isMobile ? true : false}
                 infinite={true}
                 removeArrowOnDeviceType={'mobile'}
@@ -39,7 +39,11 @@ export default function CarouselProducts({ name, productList }){
             >
                 {productList.map((product, index) => {
                     return(
-                        <ProductBox key={index} product={product} />
+                        <ProductBox 
+                            key={index} 
+                            product={product} 
+                            size={95}
+                        />
                     )
                 })}
             </Carousel>

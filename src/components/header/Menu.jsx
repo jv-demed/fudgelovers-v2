@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useMedia } from 'use-media';
 import styled from 'styled-components';
 import Hamburger from './Hamburger';
@@ -8,16 +9,18 @@ const MenuStyled = styled.nav`
     gap: 20px;
     .menuDesktop{
         align-items: center;
-        color: ${({ theme }) => theme.palette.basics.white};
         display: flex;
         font-family: 'Montserrat', sans-serif;
         font-size: 1rem;
         gap: 20px;
         li{
             cursor: pointer;
-        }
-        li:hover{
-            color: ${({ theme }) => theme.palette.gray.i100};
+            a{
+                color: ${({ theme }) => theme.palette.basics.white};
+            }
+            a:hover{
+                color: ${({ theme }) => theme.palette.gray.i100};
+            }
         }
     }
 `
@@ -32,9 +35,17 @@ export default function Menu({ shoppingCart }){
                 <Hamburger shoppingCart={shoppingCart} />
                 :
                 <ul className='menuDesktop'>
-                    <li>Início</li>
-                    <li>Produtos</li>
-                    <li>Contato</li>
+                    <li>
+                        <Link href='/'>
+                            <a>Início</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='/produtos'>
+                            <a>Produtos</a>
+                        </Link>
+                    </li>
+                    <li><a>Contato</a></li>
                     <ShoppingCart shoppingCart={shoppingCart} />
                 </ul>
             }

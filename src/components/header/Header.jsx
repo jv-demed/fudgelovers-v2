@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import { logos } from '../../assets/images';
 import Menu from './Menu';
@@ -21,7 +22,9 @@ const HeaderStyled = styled.header`
 export default function Header({ shoppingCart }){
     return(
         <HeaderStyled className='header container'>
-            <img src={logos.logo.img} alt={logos.logo.desc} />
+            <Link href='/'>
+                <img src={logos.logo.img} alt={logos.logo.desc} />
+            </Link>
             <Menu shoppingCart={shoppingCart} />
         </HeaderStyled>
     )
