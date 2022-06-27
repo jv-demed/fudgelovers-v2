@@ -5,6 +5,7 @@ import ProductList from '../src/components/products/ProductList';
 const ProdutosStyled = styled.section`
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
     .productList{
         border: 1px solid red;
         display: flex;
