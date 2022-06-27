@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import TitleSection from '../src/components/globals/TitleSection';
-import ProductList from '../src/components/products/ProductList';
+import TitleSection from '../../src/components/globals/TitleSection';
+import ProductList from '../../src/components/products/ProductList';
 
 const ProdutosStyled = styled.section`
     display: flex;

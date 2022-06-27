@@ -29,9 +29,9 @@ export default function ProductList(){
     return(
         <ProductListStyled>
             {isMobile ? 
-                <FilterMobile setFilter={setFilter} /> 
+                <FilterMobile filter={filter} setFilter={setFilter} /> 
                 :
-                <Categories setFilter={setFilter} />
+                <Categories filter={filter} setFilter={setFilter} />
             }
             <div className='products'>
                 {products.map((product, index) => {

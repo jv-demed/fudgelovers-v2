@@ -1,6 +1,5 @@
 const categories = [
     'Todos',
-    'Presentes',
     'Fudges',
     'Caixas Especiais',
     'Tortas de Sorvete'
@@ -8,25 +7,11 @@ const categories = [
 
 const products = [
     {
-        name: 'Lata de Fudges Amo Você',
-        category: 'Presentes',
-        img: 'https://i.imgur.com/KpMmY8d.jpg',
-        value: 68.90,
-        news: true,
-        highlight: true
-    },{
-        name: 'Lata de Fudges Adoro Você',
-        category: 'Presentes',
-        img: 'https://i.imgur.com/cCVZR90.jpg',
-        value: 68.90,
-        news: true,
-        highlight: true
-    },{
         name: 'Fudge Avelã',
         category: 'Fudges',
         img: 'https://i.imgur.com/Q2fODY6.jpg',
         value: 22.00,
-        news: false,
+        news: true,
         highlight: false
     },{
         name: 'Fudge Caramelo Salgado',
@@ -68,7 +53,7 @@ const products = [
         category: 'Fudges',
         img: 'https://i.imgur.com/IY93bvn.jpg',
         value: 22.00,
-        news: false,
+        news: true,
         highlight: false
     },{
         name: 'Fudge Chocolate Trufado',

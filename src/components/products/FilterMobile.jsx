@@ -6,14 +6,24 @@ const FilterMobileStyled = styled.aside`
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    .select{
+        background-color: ${({ theme }) => theme.palette.primary.light};
+        border: none;
+        color: ${({ theme }) => theme.palette.basics.white};
+        transition: 0.2s;
+    }
 `
 
-export default function FilterMobile({ setFilter }){
+export default function FilterMobile({ filter, setFilter }){
     return(
         <FilterMobileStyled>
             {categories.map((category, index) => {
                 return(
-                    <FilterBtn onClick={() => setFilter(category)}>
+                    <FilterBtn 
+                        className={filter == category ? 'select' : ''}
+                        onClick={() => setFilter(category)}
+                        
+                    >
                         {category}
                     </FilterBtn>
                 )

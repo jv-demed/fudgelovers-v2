@@ -14,10 +14,13 @@ const CategoriesStyled = styled.aside`
         li{
             cursor: pointer;
         }
+        li.select{
+            text-decoration: underline;
+        }
     }
 `
 
-export default function Categories({ setFilter }){
+export default function Categories({ filter, setFilter }){
     return(
         <CategoriesStyled>
             <TitleSection title='CATEGORIAS' size={0.9} />
@@ -25,6 +28,7 @@ export default function Categories({ setFilter }){
                 {categories.map((category, index) => {
                     return(
                         <li key={index}
+                            className={filter == category ? 'select' : ''}
                             onClick={() => setFilter(category)}
                         >
                             {category}

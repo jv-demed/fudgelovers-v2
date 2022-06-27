@@ -7,12 +7,6 @@ const FilterBtn = styled.button`
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     padding: 2px 6px;
-    :hover{
-        background-color: ${({ theme }) => theme.palette.primary.light};
-        border: none;
-        color: ${({ theme }) => theme.palette.basics.white};
-        transition: 0.2s;
-    }
 `
 
 export default FilterBtn;

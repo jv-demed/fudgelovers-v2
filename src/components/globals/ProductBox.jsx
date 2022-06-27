@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import ProductBoxBtn from './ProductBoxBtn';
 import { FaRegEye } from 'react-icons/fa';
@@ -28,25 +29,30 @@ const ProductBoxStyled = styled.div`
 `
 
 export default function ProductBox({ product, size}){
+
+    const linkName = product.name.toLowerCase().replace(/ /g, '-');
+
     return(
-        <ProductBoxStyled size={size}>
-            <div>
-                <img src={product.img} alt={product.name} />
-                <div className='productInfo'>
-                    <span>{product.name}</span><br />
-                    <span>R${product.value}</span>
+        <Link href={'/produtos/'+product.name}>
+            <ProductBoxStyled size={size}>
+                <div>
+                    <img src={product.img} alt={product.name} />
+                    <div className='productInfo'>
+                        <span>{product.name}</span><br />
+                        <span>R${product.value}</span>
+                    </div>
                 </div>
-            </div>
-            <div className='btnArea'>
-                <ProductBoxBtn className='border'>
-                    Detalhes
-                    <FaRegEye />
-                </ProductBoxBtn>
-                <ProductBoxBtn>
-                    Comprar
-                    <FiShoppingCart />
-                </ProductBoxBtn>
-            </div>
-        </ProductBoxStyled>
+                <div className='btnArea'>
+                    <ProductBoxBtn className='border'>
+                        Detalhes
+                        <FaRegEye />
+                    </ProductBoxBtn>
+                    <ProductBoxBtn>
+                        Comprar
+                        <FiShoppingCart />
+                    </ProductBoxBtn>
+                </div>
+            </ProductBoxStyled>
+        </Link>
     )
 }
