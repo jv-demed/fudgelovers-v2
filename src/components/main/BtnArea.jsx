@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import Btn from '../globals/Btn';
+import MainBtn from '../globals/MainBtn';
 import { IoIosCube } from 'react-icons/io';
 import { BsWhatsapp } from 'react-icons/bs';
 
@@ -20,15 +20,15 @@ export default function BtnArea(){
     return(
         <BtnAreaStyled>
             <Link href='/produtos'>
-                <Btn>
+                <MainBtn>
                     EXPLORAR
                     <IoIosCube />
-                </Btn>
+                </MainBtn>
             </Link>
-            <Btn className='whatsapp'>
+            <MainBtn className='whatsapp'>
                 WHATSAPP
                 <BsWhatsapp />
-            </Btn>
+            </MainBtn>
         </BtnAreaStyled>
     )
 }

@@ -14,11 +14,11 @@ const ProdutoStyled = styled.section`
     }
 `
 
-export default function Produto({ name, img, value }){
+export default function Produto(props){
     return(
         <ProdutoStyled className='container'>
-            <TitleSection title={name} size={2} />
-            <InfoProduct name={name} img={img} value={value} />
+            <TitleSection title={props.name} size={2} />
+            <InfoProduct product={props} />
         </ProdutoStyled>
     )
 }
