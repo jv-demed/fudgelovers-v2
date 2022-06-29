@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Counter from '../globals/Counter';
 import Btn from '../globals/Btn';
+import DescProducts from './descProduct';
 
 const InfoProductStyled = styled.div`
     display: flex;
@@ -16,7 +17,7 @@ const InfoProductStyled = styled.div`
         gap: 20px;
     }
     @media(max-width: 650px){
-        gap: 10px;
+        gap: 15px;
         margin-top: 10px;
         .value{
             font-size: 2.5rem;
@@ -30,10 +31,6 @@ const InfoProductStyled = styled.div`
                 width: 70%;
             }
         }
-        .desc{
-            border-top: 1px solid ${({ theme }) => theme.palette.gray.i200};
-            padding-top: 10px;
-        }
     }
 `
 
@@ -43,12 +40,12 @@ export default function InfoProduct({ product }){
 
     return(
         <InfoProductStyled>
-                <span className='value'>R${quant * product.value}</span>
-                <div className='actionArea'>
-                    <Counter quant={quant} setQuant={setQuant} max={10} min={1} />
-                    <Btn action='Comprar' />
-                </div>
-            <span className='desc'>{product.desc}</span>
+            <span className='value'>R${quant * product.value}</span>
+            <div className='actionArea'>
+                <Counter quant={quant} setQuant={setQuant} max={10} min={1} />
+                <Btn action='Comprar' />
+            </div>
+            <DescProducts product={product} />
         </InfoProductStyled>
     )
 }

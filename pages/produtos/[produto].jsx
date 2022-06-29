@@ -8,7 +8,7 @@ const ProdutoStyled = styled.section`
     .infoProduct{
         display: flex;
         font-family: 'Montserrat', sans-serif;
-        font-size: 1.2rem;
+        font-size: 1rem;
         gap: 4%;
         img{
             width: 48%;
@@ -38,7 +38,6 @@ export default function Produto(props){
 }
 
 export async function getServerSideProps(context){
-    console.log(context.params.produto)
     const product = products.find((product) => {
         if(product.name == context.params.produto){
             return product;

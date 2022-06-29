@@ -9,6 +9,12 @@ const contact = {
     whatsappNumberMask: '(51) 98358.7561',
 }
 
+const infoProducts = {
+    art: 'Produto artesanal.',
+    fudgeBoxes: 'Caixa com 4 ou 6 unidades de ',
+    gAprox: 'Aprox. '
+}
+
 const slogans = {
     title: 'Fudges deliciosos para você se apaixonar',
     subtitle: `Experimente e se apaixone por todos os 
@@ -16,4 +22,4 @@ const slogans = {
     você também em um Fudge Lover!`
 }
 
-export { company, contact, slogans };
+export { company, contact, infoProducts, slogans };
