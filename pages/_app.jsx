@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import { Provider } from 'react-redux';
+import store from '../src/redux/store';
 import { ThemeProvider } from 'styled-components';
 import theme from '../src/styles/theme.js';
 import GlobalStyle from '../src/styles/globals.js';
@@ -17,12 +19,14 @@ export default function App({ Component, pageProps }){
             <Head>
                 <title>Fudge Lovers</title>
             </Head>
-            <ThemeProvider theme={theme}>
-                <GlobalStyle />
-                <Header shoppingCart={shoppingCart} />
-                <Component {...pageProps} />
-                <Footer />
-            </ThemeProvider>
+            <Provider store={store}>
+                <ThemeProvider theme={theme}>
+                    <GlobalStyle />
+                    <Header shoppingCart={shoppingCart} />
+                    <Component {...pageProps} />
+                    <Footer />
+                </ThemeProvider>
+            </Provider>
         </>
     )
 }

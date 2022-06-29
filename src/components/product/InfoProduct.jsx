@@ -1,40 +1,38 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import Counter from '../globals/Counter';
 import Btn from '../globals/Btn';
 
 const InfoProductStyled = styled.div`
     display: flex;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    gap: 4%;
-    img{
-        width: 48%;
+    flex-direction: column;
+    gap: 20px;
+    .value{
+        font-weight: bold;
+        font-size: 1.8rem;
     }
-    .infoArea{
+    .actionArea{
         display: flex;
-        flex-direction: column;
         gap: 20px;
-        .purchasingArea{
-            display: flex;
-            flex-direction: column;
-            row-gap: 15px;
-            .value{
-                font-size: 1.6rem;
-            }
-            div{
-                display: flex;
-                gap: 20px;
-            }
-        }
     }
     @media(max-width: 650px){
-        flex-direction: column;
-        img{
-            margin: 0 auto;
-            width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+        .value{
+            font-size: 2.5rem;
         }
-        .infoArea{
-            margin-top: 20px;
+        .actionArea{
+            height: 50px;
+            div{
+                width: 30%;
+            }
+            button{
+                width: 70%;
+            }
+        }
+        .desc{
+            border-top: 1px solid ${({ theme }) => theme.palette.gray.i200};
+            padding-top: 10px;
         }
     }
 `
@@ -45,22 +43,12 @@ export default function InfoProduct({ product }){
 
     return(
         <InfoProductStyled>
-            <img src={product.img} alt={product.name} />
-            <div className='infoArea'>
-                <div className='purchasingArea'>
-                    <span className='value'>R${quant * product.value}</span>
-                    <div>
-                        <input type='number' 
-                            max='10' 
-                            min='1' 
-                            onChange={(e) => {setQuant(e.target.value)}} 
-                            value={quant}
-                        />
-                        <Btn action='Comprar' />
-                    </div>
+                <span className='value'>R${quant * product.value}</span>
+                <div className='actionArea'>
+                    <Counter quant={quant} setQuant={setQuant} max={10} min={1} />
+                    <Btn action='Comprar' />
                 </div>
-                <span>{product.desc}</span>
-            </div>
+            <span className='desc'>{product.desc}</span>
         </InfoProductStyled>
     )
 }
