@@ -54,14 +54,14 @@ const MenuMobileStyled = styled.div`
     }
 `
 
-export default function MenuMobile({ shoppingCart }){
+export default function MenuMobile(){
     return(
         <MenuMobileStyled>
             <span>
                 <Popover.Button className='closeBtn'>
                     <VscChromeClose />
                 </Popover.Button>
-                <ShoppingCart shoppingCart={shoppingCart} />
+                <ShoppingCart />
             </span>
             <ul>
                 <li>

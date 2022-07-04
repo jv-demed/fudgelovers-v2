@@ -14,7 +14,7 @@ const HamburgerStyled = styled.span`
     }
 `
 
-export default function Hamburger({ shoppingCart }){
+export default function Hamburger(){
     return(
         <HamburgerStyled>
             <Popover>
@@ -22,7 +22,7 @@ export default function Hamburger({ shoppingCart }){
                     <GiHamburgerMenu />
                 </Popover.Button>
                 <Popover.Panel>
-                    <MenuMobile shoppingCart={shoppingCart} />
+                    <MenuMobile />
                 </Popover.Panel>
             </Popover>
         </HamburgerStyled>

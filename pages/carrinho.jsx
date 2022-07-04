@@ -7,20 +7,11 @@ const CarrinhoStyled = styled.section`
 `
 
 
-export default function Carrinho({ shoppingCart }){
-    const items = [
-        {
-            name: 'Fudge Avelã',
-            value: 22
-        },{
-            name: 'Torta de Sorvete de Creme',
-            value: 60
-        },
-    ]
+export default function Carrinho(){
     return(
         <CarrinhoStyled className='container'>
             <TitleSection title='Carrinho de Compras' size={2} />
-            <CartList shoppingCart={shoppingCart} />
+            <CartList />
         </CarrinhoStyled>
     )
 }

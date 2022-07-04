@@ -1,8 +1,11 @@
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import ProductBoxBtn from './ProductBoxBtn';
 import { FaRegEye } from 'react-icons/fa';
 import { FiShoppingCart } from 'react-icons/fi';
+import { store } from '../../redux/store';
+import { addItem } from '../../redux/cartSlice';
 
 const ProductBoxStyled = styled.div`
     background-color: ${({ theme }) => theme.palette.gray.i50};
@@ -29,6 +32,7 @@ const ProductBoxStyled = styled.div`
 `
 
 export default function ProductBox({ product, size, shoppingCart, setShoppingCart}){
+
     return(
         <ProductBoxStyled size={size}>
             <div>
@@ -48,7 +52,10 @@ export default function ProductBox({ product, size, shoppingCart, setShoppingCar
                     </ProductBoxBtn>
                 </Link>
                 <ProductBoxBtn
-                    onClick={() => setShoppingCart(shoppingCart => [...shoppingCart, product])}
+                    onClick={() => {
+                        //setShoppingCart(shoppingCart => [...shoppingCart, product]);
+                        store.dispatch(addItem(product))
+                    }}
                 >
                     Comprar
                     <FiShoppingCart />

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import CartItem from './CartItem';
+import { store } from '../../redux/store';
 
 const CartListStyled = styled.div`
     background-color: ${({ theme }) => theme.palette.gray.i50};
@@ -11,14 +12,25 @@ const CartListStyled = styled.div`
     row-gap: 10px;
 `
 
-export default function CartList({ shoppingCart }){
+export default function CartList(){
+
+    const shoppingCart = store.getState().value;
+
     return(
         <CartListStyled>
             {shoppingCart.length > 0 ?
-                shoppingCart.map((cartItem) => <CartItem cartItem={cartItem} />)
+                shoppingCart.map((cartItem, i) => {
+                    return(
+                        <CartItem 
+                            cartItem={cartItem}
+                            key={'product'+i}
+                        />
+                    )
+                })
                 :
-                <span>Não há itens em seu carrinho.</span>
+                <span>Nenhum item no carrinho.</span>
             }
+            {console.log(shoppingCart)}
         </CartListStyled>
     )
 }

@@ -25,14 +25,14 @@ const MenuStyled = styled.nav`
     }
 `
 
-export default function Menu({ shoppingCart }){
+export default function Menu(){
 
     const isMobile = useMedia({ maxWidth: 650 });
 
     return(
         <MenuStyled>
             {isMobile ?
-                <Hamburger shoppingCart={shoppingCart} />
+                <Hamburger />
                 :
                 <ul className='menuDesktop'>
                     <li>
@@ -46,7 +46,7 @@ export default function Menu({ shoppingCart }){
                         </Link>
                     </li>
                     <li><a>Contato</a></li>
-                    <ShoppingCart shoppingCart={shoppingCart} />
+                    <ShoppingCart />
                 </ul>
             }
         </MenuStyled>

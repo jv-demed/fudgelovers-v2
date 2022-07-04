@@ -5,10 +5,10 @@ import { products } from '../../assets/products';
 const HighlightsStyled = styled.main`
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
 `
 
-export default function Highlights({ shoppingCart, setShoppingCart }){
+export default function Highlights(){
 
     let news = products.filter((product) => {
         if(product.news){
@@ -22,17 +22,14 @@ export default function Highlights({ shoppingCart, setShoppingCart }){
     })
 
     return(
-        <HighlightsStyled className='container section'>
+        <HighlightsStyled className='container'>
             <CarouselProducts 
                 name='Novidades' 
                 productList={news} 
-                shoppingCart={shoppingCart}
-                setShoppingCart={setShoppingCart} 
             />
             <CarouselProducts 
                 name='Destaques' 
                 productList={highlights} 
-                setShoppingCart={setShoppingCart} 
             />
         </HighlightsStyled>
     )

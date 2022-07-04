@@ -20,7 +20,7 @@ const ProductListStyled = styled.section`
     }
 `
 
-export default function ProductList({ shoppingCart, setShoppingCart }){
+export default function ProductList(){
 
     const isMobile = useMedia({ maxWidth: 650 });
     const isTablet = useMedia({ maxWidth: 850 });
@@ -41,8 +41,6 @@ export default function ProductList({ shoppingCart, setShoppingCart }){
                                 key={index} 
                                 product={product} 
                                 size={isMobile ? 49.3 : isTablet ? 32.4 : 24} 
-                                shoppingCart={shoppingCart}
-                                setShoppingCart={setShoppingCart}
                             />
                         )
                     }

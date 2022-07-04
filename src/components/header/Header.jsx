@@ -19,13 +19,13 @@ const HeaderStyled = styled.header`
     }
 `
 
-export default function Header({ shoppingCart }){
+export default function Header(){
     return(
         <HeaderStyled className='header container'>
             <Link href='/'>
                 <img src={logos.logo.img} alt={logos.logo.desc} />
             </Link>
-            <Menu shoppingCart={shoppingCart} />
+            <Menu />
         </HeaderStyled>
     )
 }

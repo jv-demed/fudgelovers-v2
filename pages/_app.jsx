@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import theme from '../src/styles/theme.js';
@@ -9,9 +8,6 @@ import '../src/styles/container.css';
 import '../src/styles/typography.css';
 
 export default function App({ Component, pageProps }){
-
-    const [shoppingCart, setShoppingCart] = useState([]);
-
     return(
         <>
             <Head>
@@ -19,12 +15,8 @@ export default function App({ Component, pageProps }){
             </Head>
             <ThemeProvider theme={theme}>
                 <GlobalStyle />
-                <Header shoppingCart={shoppingCart} />
-                <Component {...pageProps}
-                    shoppingCart={shoppingCart}
-                    setShoppingCart={setShoppingCart}
-                />
-                {console.log(shoppingCart)}
+                <Header />
+                <Component {...pageProps} />
                 <Footer />
             </ThemeProvider>
         </>

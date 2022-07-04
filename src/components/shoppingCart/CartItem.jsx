@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-import Counter from '../globals/Counter';
 
 const CartItemStyled = styled.div`
     align-items: center;
@@ -12,10 +10,13 @@ const CartItemStyled = styled.div`
 `
 
 export default function CartItem({ cartItem }){
+
+    const product = cartItem.payload;
+
     return(
         <CartItemStyled>
-            <img src={cartItem.img} alt={cartItem.name} />
-            {cartItem.name}
+            <img src={product.img} alt={product.name} />
+            {product.name}
         </CartItemStyled>
     )
 }

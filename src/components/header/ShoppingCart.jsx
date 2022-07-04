@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import Link from 'next/link';
+import { store } from '../../redux/store';
 import styled from 'styled-components';
 import { FiShoppingCart } from 'react-icons/fi';
 
@@ -15,14 +17,9 @@ const ShoppingCartStyled = styled.span`
     }
 `
 
-export default function ShoppingCart({ shoppingCart }){
+export default function ShoppingCart(){
 
-    function valueCart(){
-        shoppingCart.reduce(tot, item => {
-            tot += item.value;
-        });
-        return tot;
-    }
+    const [shoppingCart] = useState(store.getState().value);
 
     return(
         <Link href='/carrinho'>
@@ -31,7 +28,7 @@ export default function ShoppingCart({ shoppingCart }){
                 <span>
                     {shoppingCart.length} - 
                     R${shoppingCart.reduce((tot, item) => {
-                        tot += item.value;
+                        tot += item.payload.value;
                         return tot;
                     }, 0)}
                 </span>

@@ -15,11 +15,11 @@ const ProdutosStyled = styled.section`
     }
 `
 
-export default function Produtos({ shoppingCart, setShoppingCart }){
+export default function Produtos(){
     return(
         <ProdutosStyled className='container'>
             <TitleSection title='Produtos' size={2} />
-            <ProductList shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
+            <ProductList />
         </ProdutosStyled>
     )
 }
