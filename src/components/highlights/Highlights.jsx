@@ -6,10 +6,9 @@ const HighlightsStyled = styled.main`
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding-top: 20px;
 `
 
-export default function Highlights(){
+export default function Highlights({ shoppingCart, setShoppingCart }){
 
     let news = products.filter((product) => {
         if(product.news){
@@ -24,8 +23,17 @@ export default function Highlights(){
 
     return(
         <HighlightsStyled className='container section'>
-            <CarouselProducts name='Novidades' productList={news} />
-            <CarouselProducts name='Destaques' productList={highlights} />
+            <CarouselProducts 
+                name='Novidades' 
+                productList={news} 
+                shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart} 
+            />
+            <CarouselProducts 
+                name='Destaques' 
+                productList={highlights} 
+                setShoppingCart={setShoppingCart} 
+            />
         </HighlightsStyled>
     )
 }

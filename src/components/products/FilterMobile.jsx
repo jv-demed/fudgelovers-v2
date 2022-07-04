@@ -21,8 +21,8 @@ export default function FilterMobile({ filter, setFilter }){
                 return(
                     <FilterBtn 
                         className={filter == category ? 'select' : ''}
-                        onClick={() => setFilter(category)}
-                        
+                        key={'category'+(index+1)}
+                        onClick={() => setFilter(category)}                        
                     >
                         {category}
                     </FilterBtn>

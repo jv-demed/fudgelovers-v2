@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import { FiShoppingCart } from 'react-icons/fi';
 
@@ -16,12 +17,25 @@ const ShoppingCartStyled = styled.span`
 
 export default function ShoppingCart({ shoppingCart }){
 
+    function valueCart(){
+        shoppingCart.reduce(tot, item => {
+            tot += item.value;
+        });
+        return tot;
+    }
+
     return(
-        <ShoppingCartStyled>
-            <FiShoppingCart />
-            <span>
-                {shoppingCart.length} - R$0,00
-            </span>
-        </ShoppingCartStyled>
+        <Link href='/carrinho'>
+            <ShoppingCartStyled>
+                <FiShoppingCart />
+                <span>
+                    {shoppingCart.length} - 
+                    R${shoppingCart.reduce((tot, item) => {
+                        tot += item.value;
+                        return tot;
+                    }, 0)}
+                </span>
+            </ShoppingCartStyled>
+        </Link>
     )
 }

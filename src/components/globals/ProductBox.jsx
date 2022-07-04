@@ -28,31 +28,32 @@ const ProductBoxStyled = styled.div`
     }
 `
 
-export default function ProductBox({ product, size}){
-
-    const linkName = product.name.toLowerCase().replace(/ /g, '-');
-
+export default function ProductBox({ product, size, shoppingCart, setShoppingCart}){
     return(
-        <Link href={'/produtos/'+product.name}>
-            <ProductBoxStyled size={size}>
-                <div>
+        <ProductBoxStyled size={size}>
+            <div>
+                <Link href={'/produtos/'+product.name}>
                     <img src={product.img} alt={product.name} />
-                    <div className='productInfo'>
-                        <span>{product.name}</span><br />
-                        <span>R${product.value}</span>
-                    </div>
+                </Link>
+                <div className='productInfo'>
+                    <span>{product.name}</span><br />
+                    <span>R${product.value}</span>
                 </div>
-                <div className='btnArea'>
+            </div>
+            <div className='btnArea'>
+                <Link href={'/produtos/'+product.name}>
                     <ProductBoxBtn className='border'>
                         Detalhes
                         <FaRegEye />
                     </ProductBoxBtn>
-                    <ProductBoxBtn>
-                        Comprar
-                        <FiShoppingCart />
-                    </ProductBoxBtn>
-                </div>
-            </ProductBoxStyled>
-        </Link>
+                </Link>
+                <ProductBoxBtn
+                    onClick={() => setShoppingCart(shoppingCart => [...shoppingCart, product])}
+                >
+                    Comprar
+                    <FiShoppingCart />
+                </ProductBoxBtn>
+            </div>
+        </ProductBoxStyled>
     )
 }

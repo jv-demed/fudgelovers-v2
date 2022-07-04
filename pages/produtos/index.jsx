@@ -5,7 +5,6 @@ import ProductList from '../../src/components/products/ProductList';
 const ProdutosStyled = styled.section`
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
     .productList{
         border: 1px solid red;
         display: flex;
@@ -16,11 +15,11 @@ const ProdutosStyled = styled.section`
     }
 `
 
-export default function Produtos(){
+export default function Produtos({ shoppingCart, setShoppingCart }){
     return(
         <ProdutosStyled className='container'>
             <TitleSection title='Produtos' size={2} />
-            <ProductList />
+            <ProductList shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
         </ProdutosStyled>
     )
 }

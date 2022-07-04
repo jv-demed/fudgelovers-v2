@@ -9,7 +9,7 @@ const CarouselProductsStyled = styled.div`
     z-index: 1;
 `
 
-export default function CarouselProducts({ name, productList }){
+export default function CarouselProducts({ name, productList, shoppingCart, setShoppingCart }){
     
     const isMobile = useMedia({ maxWidth: 650 });
 
@@ -42,6 +42,8 @@ export default function CarouselProducts({ name, productList }){
                         <ProductBox 
                             key={index} 
                             product={product} 
+                            shoppingCart={shoppingCart}
+                            setShoppingCart={setShoppingCart}
                             size={95}
                         />
                     )
