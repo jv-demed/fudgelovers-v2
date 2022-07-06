@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import theme from '../src/styles/theme.js';
 import GlobalStyle from '../src/styles/globals.js';
+import { CartProvider } from '../src/providers/CartProvider';
 import Header from '../src/components/header/Header';
 import Footer from '../src/components/footer/Footer';
 import '../src/styles/container.css';
@@ -15,9 +16,11 @@ export default function App({ Component, pageProps }){
             </Head>
             <ThemeProvider theme={theme}>
                 <GlobalStyle />
-                <Header />
-                <Component {...pageProps} />
-                <Footer />
+                <CartProvider>
+                    <Header />
+                    <Component {...pageProps} />
+                    <Footer />
+                </CartProvider>
             </ThemeProvider>
         </>
     )

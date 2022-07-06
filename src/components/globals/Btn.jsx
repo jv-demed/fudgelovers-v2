@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BtnStyled = styled.button`
+const Btn = styled.button`
     background-color: ${({ theme }) => theme.palette.primary.light};
     border: none;
     color: ${({ theme }) => theme.palette.basics.white};
@@ -12,10 +12,4 @@ const BtnStyled = styled.button`
     }
 `
 
-export default function Btn({ action }){
-    return(
-        <BtnStyled>
-            {action}
-        </BtnStyled>
-    )
-}
+export default Btn;

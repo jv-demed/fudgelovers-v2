@@ -1,11 +1,10 @@
+import { useContext } from 'react';
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
+import { CartContext } from '../../providers/CartProvider';
 import styled from 'styled-components';
 import ProductBoxBtn from './ProductBoxBtn';
 import { FaRegEye } from 'react-icons/fa';
 import { FiShoppingCart } from 'react-icons/fi';
-import { store } from '../../redux/store';
-import { addItem } from '../../redux/cartSlice';
 
 const ProductBoxStyled = styled.div`
     background-color: ${({ theme }) => theme.palette.gray.i50};
@@ -31,7 +30,9 @@ const ProductBoxStyled = styled.div`
     }
 `
 
-export default function ProductBox({ product, size, shoppingCart, setShoppingCart}){
+export default function ProductBox({ product, size}){
+
+    const { items, setItems } = useContext(CartContext);
 
     return(
         <ProductBoxStyled size={size}>
@@ -51,12 +52,14 @@ export default function ProductBox({ product, size, shoppingCart, setShoppingCar
                         <FaRegEye />
                     </ProductBoxBtn>
                 </Link>
-                <ProductBoxBtn
-                    onClick={() => {
-                        //setShoppingCart(shoppingCart => [...shoppingCart, product]);
-                        store.dispatch(addItem(product))
-                    }}
-                >
+                <ProductBoxBtn onClick={() => {
+                    setItems((items) => [...items, {
+                        name: product.name,
+                        img: product.img,
+                        value: product.value,
+                        quant: 1,
+                    }])
+                }}>
                     Comprar
                     <FiShoppingCart />
                 </ProductBoxBtn>

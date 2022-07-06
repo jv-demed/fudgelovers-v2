@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
+import { CartContext } from '../../providers/CartProvider';
 import Counter from '../globals/Counter';
 import Btn from '../globals/Btn';
 import DescProducts from './descProduct';
@@ -36,6 +38,7 @@ const InfoProductStyled = styled.div`
 
 export default function InfoProduct({ product }){
 
+    const { setItems } = useContext(CartContext);
     const [quant, setQuant] = useState(1);
 
     return(
@@ -43,7 +46,18 @@ export default function InfoProduct({ product }){
             <span className='value'>R${quant * product.value}</span>
             <div className='actionArea'>
                 <Counter quant={quant} setQuant={setQuant} max={10} min={1} />
-                <Btn action='Comprar' />
+                <Link href={'/carrinho'}>
+                    <Btn onClick={() => {
+                        setItems((items) => [...items, {
+                            name: product.name,
+                            img: product.img,
+                            value: product.value,
+                            quant: quant,
+                        }])
+                    }}>
+                        Comprar
+                    </Btn>
+                </Link>
             </div>
             <DescProducts product={product} />
         </InfoProductStyled>
